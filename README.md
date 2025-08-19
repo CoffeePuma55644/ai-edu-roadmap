@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: ai-edu-roadmap.vercel.app
+**URL**: [The website](ai-edu-roadmap.vercel.app)
 
 ## How can I edit this code?
 
