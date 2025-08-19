@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/0d0b4385-5b24-4b1c-b8ad-704b6929bdcb
+**URL**: ai-edu-roadmap.vercel.app
 
 ## How can I edit this code?
 
