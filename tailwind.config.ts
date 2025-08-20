@@ -80,10 +80,12 @@ export default {
 			boxShadow: {
 				'learning': 'var(--shadow-learning)',
 				'success': 'var(--shadow-success)',
-				'glow': 'var(--shadow-glow)'
+				'glow': 'var(--shadow-glow)',
+				'hover': 'var(--shadow-hover)'
 			},
 			transitionTimingFunction: {
-				'smooth': 'var(--transition-smooth)'
+				'smooth': 'var(--transition-smooth)',
+				'bounce': 'var(--transition-bounce)'
 			},
 			keyframes: {
 				'accordion-down': {

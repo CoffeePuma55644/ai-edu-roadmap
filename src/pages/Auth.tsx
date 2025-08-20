@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { Header } from '@/components/layout/Header';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -66,19 +67,21 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-background flex items-center justify-center p-4">
-      <Card className="w-full max-w-md shadow-learning">
-        <CardHeader className="space-y-1 text-center">
-          <CardTitle className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            {isSignUp ? 'Créer un compte' : 'Se connecter'}
-          </CardTitle>
-          <CardDescription>
-            {isSignUp 
-              ? 'Créez votre compte pour commencer votre apprentissage'
-              : 'Connectez-vous à votre compte'
-            }
-          </CardDescription>
-        </CardHeader>
+    <div className="min-h-screen bg-gradient-background">
+      <Header onAuthClick={() => {}} showAuth={false} />
+      <div className="flex items-center justify-center p-4 min-h-[calc(100vh-4rem)]">
+        <Card className="w-full max-w-md shadow-learning border-border/50 bg-card/50 backdrop-blur-sm">
+          <CardHeader className="space-y-1 text-center">
+            <CardTitle className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              {isSignUp ? 'Créer un compte' : 'Se connecter'}
+            </CardTitle>
+            <CardDescription>
+              {isSignUp 
+                ? 'Créez votre compte pour commencer votre apprentissage'
+                : 'Connectez-vous à votre compte'
+              }
+            </CardDescription>
+          </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
@@ -148,7 +151,8 @@ const Auth = () => {
             </Button>
           </div>
         </CardContent>
-      </Card>
+        </Card>
+      </div>
     </div>
   );
 };

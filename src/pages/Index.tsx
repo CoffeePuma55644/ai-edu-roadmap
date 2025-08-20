@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { LandingPage } from "@/components/landing/LandingPage";
+import { Header } from "@/components/layout/Header";
 import { LearningWelcome } from "@/components/LearningWelcome";
 import { LearningSetup } from "@/components/LearningSetup";
 import { RoadmapPreview } from "@/components/RoadmapPreview";
 import { LearningInterface } from "@/components/LearningInterface";
-import { Button } from "@/components/ui/button";
 
-type AppState = "welcome" | "setup" | "roadmap" | "learning";
+type AppState = "landing" | "welcome" | "setup" | "roadmap" | "learning";
 
 interface LearningData {
   subject: string;
@@ -19,17 +20,23 @@ interface LearningData {
 }
 
 const Index = () => {
-  const [currentState, setCurrentState] = useState<AppState>("welcome");
+  const [currentState, setCurrentState] = useState<AppState>("landing");
   const [learningData, setLearningData] = useState<LearningData | null>(null);
-  const { user, loading, signOut } = useAuth();
+  const { user, loading } = useAuth();
   const navigate = useNavigate();
 
-  // Redirect to auth if not authenticated
+  // Set initial state based on auth status
   useEffect(() => {
-    if (!loading && !user) {
-      navigate('/auth');
+    if (!loading) {
+      if (user) {
+        // User is authenticated, show welcome if first time
+        setCurrentState("welcome");
+      } else {
+        // User is not authenticated, show landing page
+        setCurrentState("landing");
+      }
     }
-  }, [user, loading, navigate]);
+  }, [user, loading]);
 
   // Show loading while checking auth
   if (loading) {
@@ -43,10 +50,15 @@ const Index = () => {
     );
   }
 
-  // Don't render anything if not authenticated
-  if (!user) {
-    return null;
-  }
+  // Always render the app, state will determine what to show
+
+  const handleGetStarted = () => {
+    if (user) {
+      setCurrentState("welcome");
+    } else {
+      navigate('/auth');
+    }
+  };
 
   const handleStartLearning = () => {
     setCurrentState("setup");
@@ -63,6 +75,9 @@ const Index = () => {
 
   const handleBack = () => {
     switch (currentState) {
+      case "welcome":
+        setCurrentState("landing");
+        break;
       case "setup":
         setCurrentState("welcome");
         break;
@@ -73,12 +88,14 @@ const Index = () => {
         setCurrentState("roadmap");
         break;
       default:
-        setCurrentState("welcome");
+        setCurrentState("landing");
     }
   };
 
   const renderCurrentState = () => {
     switch (currentState) {
+      case "landing":
+        return <LandingPage onGetStarted={handleGetStarted} />;
       case "welcome":
         return <LearningWelcome onStartLearning={handleStartLearning} />;
       case "setup":
@@ -95,22 +112,19 @@ const Index = () => {
       case "learning":
         return <LearningInterface onBack={handleBack} />;
       default:
-        return <LearningWelcome onStartLearning={handleStartLearning} />;
+        return <LandingPage onGetStarted={handleGetStarted} />;
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-background">
-      {/* Header with logout */}
-      <div className="absolute top-4 right-4 z-10">
-        <Button
-          variant="outline"
-          onClick={signOut}
-          className="bg-background/80 backdrop-blur-sm"
-        >
-          Se déconnecter
-        </Button>
-      </div>
+      {/* Show header based on current state */}
+      {currentState !== "landing" && (
+        <Header 
+          onAuthClick={() => navigate('/auth')}
+          showAuth={!user}
+        />
+      )}
       {renderCurrentState()}
     </div>
   );
