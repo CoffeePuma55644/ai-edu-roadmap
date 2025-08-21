@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Theme, Flex, Box, Card, Text, Button, Avatar, Badge, HoverCard, IconButton } from '@radix-ui/themes';
+import { Button as ShadcnButton } from "@/components/ui/button";
+import { Card as ShadcnCard, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Badge } from "@/components/ui/badge";
+import { Badge as ShadcnBadge } from "@/components/ui/badge";
 import { ArrowLeft, ArrowRight, BookOpen, Trophy, Heart, Star } from "lucide-react";
 
 interface LearningInterfaceProps {
