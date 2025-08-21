@@ -30,7 +30,7 @@ const App = () => (
             </Routes>
           </BrowserRouter>
           <Analytics />
-          <SpeedInsights /> 
+          <SpeedInsights />
         </TooltipProvider>
       </AuthProvider>
     </ThemeProvider>
