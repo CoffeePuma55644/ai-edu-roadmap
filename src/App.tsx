@@ -8,14 +8,12 @@ import { ThemeProvider, useTheme } from "@/contexts/ThemeContext"; // Utiliser u
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
-import { ThemeSynchronizer } from "@/components/ThemeSynchronizer";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
-      <ThemeSynchronizer /> {/* Ajoutez ceci en haut */}
       <AuthProvider>
         <TooltipProvider>
           <Toaster />
