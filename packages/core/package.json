@@ -1,0 +1,15 @@
+{
+  "name": "@repo/core",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./supabase": "./src/supabase/client.ts",
+    "./types": "./src/types/index.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.55.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  }
+}
