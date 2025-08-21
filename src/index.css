@@ -121,6 +121,15 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+  
+  /* Ensure consistent theme switching */
+  .dark {
+    color-scheme: dark;
+  }
+  
+  .light {
+    color-scheme: light;
   }
 }

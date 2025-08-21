@@ -98,7 +98,7 @@ export const RoadmapPreview = ({ onBack, onConfirm, onEdit, learningData }: Road
             variant="ghost" 
             size="sm" 
             onClick={onBack}
-            className="hover:bg-white/20"
+            className="hover:bg-muted/20"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Retour
@@ -114,7 +114,7 @@ export const RoadmapPreview = ({ onBack, onConfirm, onEdit, learningData }: Road
         </div>
 
         {/* Summary Card */}
-        <Card className="border-none shadow-learning bg-white/90 backdrop-blur-sm">
+        <Card className="border-none shadow-learning bg-card/90 backdrop-blur-sm">
           <CardHeader>
             <CardTitle>Résumé de votre parcours</CardTitle>
           </CardHeader>
@@ -145,7 +145,7 @@ export const RoadmapPreview = ({ onBack, onConfirm, onEdit, learningData }: Road
           <h2 className="text-xl font-semibold">Étapes du parcours</h2>
           
           {roadmapSteps.map((step, index) => (
-            <Card key={step.id} className="border-none shadow-learning bg-white/90 backdrop-blur-sm hover:shadow-glow transition-all duration-300">
+            <Card key={step.id} className="border-none shadow-learning bg-card/90 backdrop-blur-sm hover:shadow-glow transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   {/* Step Number & Icon */}
