@@ -40,7 +40,7 @@ export const LearningWelcome = ({ onStartLearning }: LearningWelcomeProps) => {
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-3 gap-6 mt-16">
-          <Card className="border-none shadow-learning bg-white/80 backdrop-blur-sm hover:shadow-glow transition-all duration-300">
+          <Card className="border-none shadow-learning bg-card/80 backdrop-blur-sm hover:shadow-glow transition-all duration-300">
             <CardHeader>
               <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto">
                 <Target className="w-6 h-6 text-primary-foreground" />
@@ -54,7 +54,7 @@ export const LearningWelcome = ({ onStartLearning }: LearningWelcomeProps) => {
             </CardContent>
           </Card>
 
-          <Card className="border-none shadow-success bg-white/80 backdrop-blur-sm hover:shadow-glow transition-all duration-300">
+          <Card className="border-none shadow-success bg-card/80 backdrop-blur-sm hover:shadow-glow transition-all duration-300">
             <CardHeader>
               <div className="w-12 h-12 bg-gradient-success rounded-lg flex items-center justify-center mx-auto">
                 <Brain className="w-6 h-6 text-secondary-foreground" />
@@ -68,7 +68,7 @@ export const LearningWelcome = ({ onStartLearning }: LearningWelcomeProps) => {
             </CardContent>
           </Card>
 
-          <Card className="border-none shadow-learning bg-white/80 backdrop-blur-sm hover:shadow-glow transition-all duration-300">
+          <Card className="border-none shadow-learning bg-card/80 backdrop-blur-sm hover:shadow-glow transition-all duration-300">
             <CardHeader>
               <div className="w-12 h-12 bg-gradient-motivation rounded-lg flex items-center justify-center mx-auto">
                 <Clock className="w-6 h-6 text-accent-foreground" />

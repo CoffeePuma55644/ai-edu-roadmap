@@ -75,7 +75,7 @@ Les variables peuvent contenir différents types de données :
   return (
     <main className="min-h-screen bg-gradient-background">
       {/* Header with progress */}
-      <div className="bg-white/90 backdrop-blur-sm shadow-learning sticky top-0 z-10">
+      <div className="bg-card/90 backdrop-blur-sm shadow-learning sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between mb-4">
             <Button 
@@ -126,7 +126,7 @@ Les variables peuvent contenir différents types de données :
       <div className="max-w-4xl mx-auto p-4 space-y-6">
         {!showQuiz ? (
           /* Learning Content */
-          <Card className="border-none shadow-learning bg-white/90 backdrop-blur-sm">
+          <Card className="border-none shadow-learning bg-card/90 backdrop-blur-sm">
             <CardHeader>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
@@ -146,7 +146,7 @@ Les variables peuvent contenir différents types de données :
           </Card>
         ) : (
           /* Quiz Content */
-          <Card className="border-none shadow-learning bg-white/90 backdrop-blur-sm">
+          <Card className="border-none shadow-learning bg-card/90 backdrop-blur-sm">
             <CardHeader>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-motivation rounded-lg flex items-center justify-center">

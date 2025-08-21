@@ -71,7 +71,7 @@ export const LearningSetup = ({ onBack, onSubmit }: LearningSetupProps) => {
             variant="ghost" 
             size="sm" 
             onClick={onBack}
-            className="hover:bg-white/20"
+            className="hover:bg-muted/20"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Retour
@@ -88,7 +88,7 @@ export const LearningSetup = ({ onBack, onSubmit }: LearningSetupProps) => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Subject Card */}
-          <Card className="border-none shadow-learning bg-white/90 backdrop-blur-sm">
+          <Card className="border-none shadow-learning bg-card/90 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
@@ -127,7 +127,7 @@ export const LearningSetup = ({ onBack, onSubmit }: LearningSetupProps) => {
           </Card>
 
           {/* Time & Style Card */}
-          <Card className="border-none shadow-learning bg-white/90 backdrop-blur-sm">
+          <Card className="border-none shadow-learning bg-card/90 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-gradient-success rounded-lg flex items-center justify-center">
@@ -170,7 +170,7 @@ export const LearningSetup = ({ onBack, onSubmit }: LearningSetupProps) => {
           </Card>
 
           {/* Goals Card */}
-          <Card className="border-none shadow-learning bg-white/90 backdrop-blur-sm">
+          <Card className="border-none shadow-learning bg-card/90 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-gradient-motivation rounded-lg flex items-center justify-center">
