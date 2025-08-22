@@ -19,6 +19,10 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
+      {/* This div will be the animated background */}
+      <div className="animated-cosmic-background" />
+      
+      {/* The rest of the application will be rendered on top */}
       <ThemeSynchronizer />
       <AuthProvider>
         <TooltipProvider>

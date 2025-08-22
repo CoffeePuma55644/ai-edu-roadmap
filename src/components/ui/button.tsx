@@ -9,7 +9,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "luminous-button", // New primary button style
+        glass: "glass-button", // New secondary glass button style
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
