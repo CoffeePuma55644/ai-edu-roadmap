@@ -1,0 +1,22 @@
+<svg width="0" height="0" style="position:absolute">
+  <filter id="liquidRefraction">
+    <!-- 
+      Load the displacement map. 
+      Using a placeholder /assets/normal/liquid-soft.png.
+      This should be a seamless, organic noise texture.
+    -->
+    <feImage xlink:href="/assets/normal/liquid-soft.png" result="map" x="0" y="0" width="512" height="512" />
+    
+    <!-- Blur the source graphic slightly to soften the refraction -->
+    <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" result="src" />
+    
+    <!-- 
+      Apply the displacement map.
+      - in="src": The element to be distorted (the blurred source).
+      - in2="map": The displacement map loaded via feImage.
+      - scale: Controls the intensity of the distortion. This will be controlled by a CSS variable.
+      - xChannelSelector/yChannelSelector: Use the Red and Green channels of the map for displacement.
+    -->
+    <feDisplacementMap in="src" in2="map" scale="18" xChannelSelector="R" yChannelSelector="G" />
+  </filter>
+</svg>

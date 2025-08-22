@@ -28,6 +28,7 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <SvgInjector svgUrl="/src/styles/glass.svg" />
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />

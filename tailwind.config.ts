@@ -94,10 +94,13 @@ export default {
 					track: 'var(--violet-track)'
 				}
 			},
-			borderRadius: {
+						borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+        // Liquid Glass styles
+        'glass-card': '24px',
+        'glass-button': '16px',
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',

@@ -1,299 +1,102 @@
-# Liquid Glass Design System - AI-Edu-Roadmap
+# Design System: Liquid Glass iOS 26
 
-## Vue d'ensemble
+Ce document explique comment utiliser le système de composants "Liquid Glass" implémenté dans ce projet.
 
-Ce document présente la mise à jour complète du design de l'application AI-Edu-Roadmap avec le nouveau style **"Liquid Glass"** inspiré d'iOS 26. Cette mise à jour transforme l'interface utilisateur avec des effets de verre translucide, des animations fluides et une expérience premium.
+## 1. Principe de Base
 
-## 🎨 Caractéristiques du Design Liquid Glass
+Le design system est basé sur un composant principal, `GlassPanel`, qui fournit l'effet visuel de verre dépoli et translucide. Tous les autres composants de ce système (`GlassCard`, `GlassButton`, etc.) sont des spécialisations de ce `GlassPanel`.
 
-### Palette de couleurs
+L'effet est contrôlé via des props sur les composants React.
 
-- **Fond global** : Dégradé linéaire (#1A0D3B → #2A003B → #FF5E00)
-- **Cartes et composants** : Background semi-translucide avec `backdrop-filter: blur(12px)`
-- **Texte principal** : Blanc (#FFFFFF)
-- **Texte secondaire** : Gris clair (#A0A0A0)
-- **Accents** : Indigo (#4F46E5) et Orange (#FF5E00)
+## 2. Installation
 
-### Effets visuels
+Pour que les styles fonctionnent, assurez-vous que les fichiers suivants sont correctement importés dans votre application, idéalement dans le point d'entrée principal (`src/main.tsx` ou `src/App.tsx`):
 
-- ✨ **Backdrop blur** : 12-15px pour l'effet verre
-- 🌟 **Bordures translucides** : `rgba(255, 255, 255, 0.1)`
-- 🎯 **Ombres douces** : `0 4px 30px rgba(0, 0, 0, 0.1)`
-- 📱 **Animations fluides** : `scale(1.02)` et `translateY(-2px)` au hover
-- 🔮 **Gradients dynamiques** : Pour les boutons et badges
+1.  **CSS Core** : Contient tous les styles pour l'effet de verre.
+    ```javascript
+    import '@/styles/liquid-glass.css';
+    ```
 
-## 🚀 Nouveaux Composants
+2.  **Filtres SVG** : Nécessaire pour la variante `lens`. Le composant `SvgInjector` est utilisé pour charger dynamiquement les filtres SVG dans le DOM.
+    ```javascript
+    import SvgInjector from '@/components/ui/SvgInjector';
 
-### 1. Dashboard (`/src/components/Dashboard.tsx`)
+    // Dans votre composant App
+    <SvgInjector svgUrl="/src/styles/glass.svg" />
+    ```
 
-**Fonctionnalités** :
+## 3. Composants Disponibles
 
-- Layout Kanban avec colonnes : Backlog, In Progress, Review, Completed
-- Cartes de roadmaps d'apprentissage avec images, tags, avatars
-- Système de glisser-déposer simulé
-- Responsive mobile-first
+Voici la liste des composants que vous pouvez utiliser :
 
-**Utilisation** :
+-   `<GlassPanel>`: Le conteneur de base.
+-   `<GlassCard>`: Pour afficher du contenu en modules. Inclut des sous-composants `GlassCardHeader`, `GlassCardTitle`, `GlassCardContent`, etc.
+-   `<GlassButton>`: Bouton interactif avec variantes `primary`, `secondary`, `ghost`.
+-   `<GlassInput>`: Champ de saisie.
+-   `<GlassToolbar>`: Barre de navigation supérieure.
+-   `<GlassSheet>`: Panneau latéral ou modale, basé sur Radix UI Dialog pour l'accessibilité.
 
-```tsx
-import { Dashboard } from "@/components/Dashboard";
+## 4. Comment Utiliser les Composants
 
-<Dashboard onBack={() => console.log("Back clicked")} />;
-```
-
-### 2. LearningInterfaceLiquidGlass (`/src/components/LearningInterfaceLiquidGlass.tsx`)
-
-**Fonctionnalités** :
-
-- Interface d'apprentissage avec contenu théorique et quiz
-- Système de progression avec XP, hearts, et streak
-- Effets de verre liquide sur tous les éléments
-- Animations de hover et focus
-
-**Utilisation** :
+### Exemple avec une Carte
 
 ```tsx
-import { LearningInterfaceLiquidGlass } from "@/components/LearningInterfaceLiquidGlass";
+import { GlassCard, GlassCardHeader, GlassCardTitle, GlassCardContent } from '@/components/ui/GlassCard';
 
-<LearningInterfaceLiquidGlass onBack={() => console.log("Back clicked")} />;
-```
-
-### 3. HeaderLiquidGlass (`/src/components/layout/HeaderLiquidGlass.tsx`)
-
-**Fonctionnalités** :
-
-- Header sticky avec effet de verre
-- Logo animé avec gradient
-- Notifications avec badge pulsant
-- Avatar utilisateur avec glow effect
-
-**Utilisation** :
-
-```tsx
-import { HeaderLiquidGlass } from "@/components/layout/HeaderLiquidGlass";
-
-<HeaderLiquidGlass
-  onAuthClick={() => navigate("/auth")}
-  showAuth={!user}
-  onMenuClick={() => toggleMenu()}
-/>;
-```
-
-## 🎯 Système de Classes CSS
-
-### Classes principales
-
-```css
-/* Backgrounds */
-.liquid-glass-bg          /* Fond avec dégradé */
-/* Fond avec dégradé */
-.liquid-glass-card        /* Cartes avec effet verre */
-.liquid-glass-header      /* Header translucide */
-
-/* Boutons */
-.liquid-button-primary    /* Bouton principal indigo */
-.liquid-button-secondary  /* Bouton secondaire orange */
-.liquid-button-ghost      /* Bouton transparent */
-.liquid-button-success    /* Bouton vert */
-.liquid-button-destructive /* Bouton rouge */
-
-/* Texte */
-.liquid-text-gradient     /* Texte avec gradient */
-.liquid-text-primary      /* Texte blanc */
-.liquid-text-secondary    /* Texte gris */
-
-/* Animations */
-.liquid-animate-float     /* Animation flottante */
-.liquid-animate-glow      /* Animation luminescence */
-.liquid-hover-lift; /* Effet de levée au hover */
-```
-
-### Exemples d'utilisation
-
-```tsx
-// Card avec effet verre
-<div className="liquid-glass-card liquid-hover-lift">
-  <h3 className="liquid-text-primary">Titre</h3>
-  <p className="liquid-text-secondary">Description</p>
-  <button className="liquid-button-primary">Action</button>
-</div>
-
-// Badge avec animation
-<span className="liquid-badge liquid-animate-glow">
-  Nouveau
-</span>
-```
-
-## 📱 Responsive Design
-
-### Mobile (< 768px)
-
-- Colonnes Kanban en layout vertical
-- Cartes pleine largeur
-- Navigation adaptée
-- Boutons et padding ajustés
-
-### Desktop (≥ 768px)
-
-- Layout horizontal pour Kanban
-- Cartes en grid responsive
-- Effets de hover plus prononcés
-- Navigation complète
-
-## 🛠️ Installation et Configuration
-
-### 1. Dépendances requises
-
-```bash
-npm install @radix-ui/themes
-```
-
-### 2. Import des styles
-
-```tsx
-// Dans votre main.tsx ou App.tsx
-import "@radix-ui/themes/styles.css";
-import "./styles/liquid-glass.css";
-```
-
-### 3. Configuration Radix Theme
-
-```tsx
-import { Theme } from "@radix-ui/themes";
-
-function App() {
+function MyComponent() {
   return (
-    <Theme
-      appearance="dark"
-      accentColor="indigo"
-      grayColor="slate"
-      radius="medium"
-      scaling="100%"
-    >
-      {/* Votre application */}
-    </Theme>
+    <GlassCard variant="lens" blur={20}>
+      <GlassCardHeader>
+        <GlassCardTitle>Titre de la Carte</GlassCardTitle>
+      </GlassCardHeader>
+      <GlassCardContent>
+        <p>Contenu de la carte avec un effet de verre et de réfraction.</p>
+      </GlassCardContent>
+    </GlassCard>
   );
 }
 ```
 
-## 🎭 Pages de démonstration
+### Props de Configuration
 
-### IndexLiquidGlass (`/src/pages/IndexLiquidGlass.tsx`)
+Tous les composants "Glass" acceptent les props suivantes pour personnaliser l'effet :
 
-Page principale qui orchestre tous les composants avec transitions fluides.
+-   `variant`: `"lite" | "lens" | "pro"`
+    -   `lite`: (Défaut) Effet de base utilisant `backdrop-filter`. Très performant.
+    -   `lens`: Ajoute un effet de réfraction locale via un filtre SVG. Plus gourmand.
+    -   `pro`: Placeholder pour une future implémentation WebGL. Agit comme `lens` pour le moment.
+-   `blur`: `number` (défaut: `22`). L'intensité du flou en pixels.
+-   `saturation`: `number` (défaut: `1.32`). Le niveau de saturation des couleurs derrière le verre.
+-   `contrast`: `number` (défaut: `1.1`). Le contraste des couleurs.
+-   `opacity`: `number`. L'opacité de la surface du verre (de `0` à `1`).
+-   `highlightAmount`: `number` (défaut: `1`). L'intensité des reflets dynamiques (de `0` à `1`).
+-   `refractionScale`: `number` (défaut: `18`). Uniquement pour la variante `lens`. Contrôle l'intensité de la distorsion.
 
-### LiquidGlassDemo (`/src/pages/LiquidGlassDemo.tsx`)
+## 5. Personnalisation
 
-Page de démonstration pour tester tous les composants individuellement.
+### Arrière-plan
 
-**Accès** :
-
-```tsx
-// Dans votre router
-import LiquidGlassDemo from "@/pages/LiquidGlassDemo";
-
-<Route path="/demo" element={<LiquidGlassDemo />} />;
-```
-
-## ⚡ Performances et Optimisations
-
-### CSS Optimisations
-
-- Utilisation de `transform` pour les animations (GPU acceleration)
-- `will-change` sur les éléments animés
-- Debounce sur les interactions hover
-- Lazy loading des images
-
-### JavaScript Optimisations
-
-- Composants mémorisés avec `React.memo`
-- Callbacks optimisés avec `useCallback`
-- États locaux pour éviter les re-renders
-- Intersection Observer pour les animations
-
-## 🔧 Customisation
-
-### Variables CSS personnalisables
-
-```css
-:root {
-  --liquid-glass-primary: rgba(79, 70, 229, 0.8);
-  --liquid-glass-secondary: rgba(255, 94, 0, 0.8);
-  --liquid-glass-blur: 12px;
-  --liquid-glass-border: rgba(255, 255, 255, 0.1);
-  --liquid-glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-```
-
-### Thèmes alternatifs
+L'effet "Liquid Glass" est plus impressionnant sur un fond coloré ou une image. Pour définir un fond global, vous pouvez l'appliquer au `body` ou à un conteneur principal dans votre CSS ou directement sur un élément, comme dans la page de démo :
 
 ```tsx
-// Thème clair
-<Theme appearance="light" accentColor="blue" grayColor="gray">
-
-// Thème custom
-<Theme appearance="dark" accentColor="purple" grayColor="mauve">
+<div 
+  className="bg-cover bg-fixed bg-center"
+  style={{ backgroundImage: "url('/assets/wallpaper/demo-wallpaper.jpg')" }}
+>
+  {/* ... vos composants ... */}
+</div>
 ```
 
-## 🐛 Dépannage
+### Tailwind
 
-### Problèmes courants
+Les arrondis des composants sont définis dans `tailwind.config.ts` et peuvent y être modifiés :
 
-1. **Effet de flou ne fonctionne pas**
+-   `rounded-glass-card`: 24px
+-   `rounded-glass-button`: 16px
 
-   ```css
-   /* Assurez-vous que le navigateur supporte backdrop-filter */
-   @supports (backdrop-filter: blur(10px)) {
-     .liquid-glass-card {
-       backdrop-filter: blur(12px);
-     }
-   }
-   ```
+## 6. Accessibilité
 
-2. **Animations saccadées**
+Le système respecte les préférences utilisateur :
 
-   ```css
-   /* Forcez l'accélération GPU */
-   .liquid-glass-card {
-     transform: translateZ(0);
-     will-change: transform;
-   }
-   ```
-
-3. **Performance sur mobile**
-   ```css
-   /* Réduisez les effets sur mobile */
-   @media (max-width: 768px) {
-     .liquid-glass-card {
-       backdrop-filter: blur(8px);
-     }
-   }
-   ```
-
-## 📚 Ressources
-
-- [Radix UI Themes Documentation](https://radix-ui.com/themes)
-- [CSS Backdrop Filter MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
-- [iOS Design Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
-
-## 🔄 Migration depuis l'ancien design
-
-### Étapes de migration
-
-1. Installer les dépendances
-2. Importer les nouveaux styles
-3. Remplacer les composants existants
-4. Tester la responsivité
-5. Optimiser les performances
-
-### Composants à remplacer
-
-- `LearningInterface` → `LearningInterfaceLiquidGlass`
-- `Header` → `HeaderLiquidGlass`
-- `Index` → `IndexLiquidGlass`
-
-## 🎉 Conclusion
-
-Le nouveau design Liquid Glass apporte une expérience utilisateur premium à AI-Edu-Roadmap. Avec ses effets de verre translucide, ses animations fluides et son design moderne, l'application offre maintenant une interface digne des standards iOS 26.
-
-Pour toute question ou contribution, n'hésitez pas à consulter la documentation ou créer une issue sur le repository.
+-   `@media (prefers-reduced-transparency: reduce)`: La transparence est désactivée et remplacée par un fond opaque avec un léger grain.
+-   `@media (prefers-reduced-motion: reduce)`: Les animations de reflets sont désactivées.
