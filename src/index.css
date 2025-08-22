@@ -2,116 +2,306 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Import Liquid Glass Styles */
+@import './styles/liquid-glass.css';
 
+/* Interface Violet - Hiérarchie des couleurs basée uniquement sur le violet */
+
+/* Mode Sombre - Dark Theme */
+.dark, .dark-theme {
+  --violet-1: #110e1f;
+  --violet-2: #181529;
+  --violet-3: #271c4c;
+  --violet-4: #322067;
+  --violet-5: #3b2875;
+  --violet-6: #463384;
+  --violet-7: #55419b;
+  --violet-8: #6950bf;
+  --violet-9: #6c3cdd;
+  --violet-10: #5f29cc;
+  --violet-11: #b5a6ff;
+  --violet-12: #e0dcff;
+
+  --violet-a1: #1100ff0f;
+  --violet-a2: #5639fd1a;
+  --violet-a3: #693dfd40;
+  --violet-a4: #6c3afd5d;
+  --violet-a5: #7448fd6c;
+  --violet-a6: #7e57fd7c;
+  --violet-a7: #8764ff94;
+  --violet-a8: #8966febb;
+  --violet-a9: #7b44ffdb;
+  --violet-a10: #742ffec9;
+  --violet-a11: #b5a6ff;
+  --violet-a12: #e0dcff;
+
+  --violet-contrast: #fff;
+  --violet-surface: #1f194180;
+  --violet-indicator: #6c3cdd;
+  --violet-track: #6c3cdd;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  @media (color-gamut: p3) {
+    .dark, .dark-theme {
+      --violet-1: oklch(17.8% 0.0332 289.5);
+      --violet-2: oklch(20.9% 0.04 289.5);
+      --violet-3: oklch(27% 0.0844 289.5);
+      --violet-4: oklch(31.2% 0.118 289.5);
+      --violet-5: oklch(34.8% 0.1253 289.5);
+      --violet-6: oklch(38.9% 0.1297 289.5);
+      --violet-7: oklch(44.5% 0.141 289.5);
+      --violet-8: oklch(51.6% 0.1659 289.5);
+      --violet-9: oklch(51.4% 0.2273 289.5);
+      --violet-10: oklch(46.5% 0.2273 289.5);
+      --violet-11: oklch(77.8% 0.1735 289.5);
+      --violet-12: oklch(91.2% 0.0575 289.5);
+
+      --violet-a1: color(display-p3 0 0 0.9961 / 0.055);
+      --violet-a2: color(display-p3 0.3098 0.2314 1 / 0.097);
+      --violet-a3: color(display-p3 0.4 0.251 1 / 0.236);
+      --violet-a4: color(display-p3 0.4078 0.251 1 / 0.345);
+      --violet-a5: color(display-p3 0.4471 0.302 1 / 0.404);
+      --violet-a6: color(display-p3 0.4902 0.3647 1 / 0.463);
+      --violet-a7: color(display-p3 0.5255 0.4118 1 / 0.559);
+      --violet-a8: color(display-p3 0.5333 0.4235 1 / 0.706);
+      --violet-a9: color(display-p3 0.4667 0.2824 1 / 0.824);
+      --violet-a10: color(display-p3 0.4392 0.2078 1 / 0.753);
+      --violet-a11: color(display-p3 0.7176 0.6706 1 / 0.975);
+      --violet-a12: color(display-p3 0.8863 0.8745 1 / 0.988);
+
+      --violet-contrast: #fff;
+      --violet-surface: color(display-p3 0.1098 0.0941 0.2431 / 0.5);
+      --violet-indicator: oklch(51.4% 0.2273 289.5);
+      --violet-track: oklch(51.4% 0.2273 289.5);
+    }
+  }
+}
+
+/* Mode Clair - Light Theme */
+:root, .light, .light-theme {
+  --violet-1: #fcfcff;
+  --violet-2: #f9f8ff;
+  --violet-3: #f2f0ff;
+  --violet-4: #e8e4ff;
+  --violet-5: #ddd8ff;
+  --violet-6: #d0c9ff;
+  --violet-7: #beb3ff;
+  --violet-8: #a695ff;
+  --violet-9: #6c3cdd;
+  --violet-10: #5e34c1;
+  --violet-11: #6943d0;
+  --violet-12: #331e6a;
+
+  --violet-a1: #0000ff03;
+  --violet-a2: #2500ff07;
+  --violet-a3: #2200ff0f;
+  --violet-a4: #2600ff1b;
+  --violet-a5: #2100ff27;
+  --violet-a6: #2200ff36;
+  --violet-a7: #2500ff4c;
+  --violet-a8: #2901ff6a;
+  --violet-a9: #3f00d3c3;
+  --violet-a10: #3500b1cb;
+  --violet-a11: #3400bfbc;
+  --violet-a12: #180056e1;
+
+  --violet-contrast: #fff;
+  --violet-surface: #f8f6ffcc;
+  --violet-indicator: #6c3cdd;
+  --violet-track: #6c3cdd;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  @media (color-gamut: p3) {
+    :root, .light, .light-theme {
+      --violet-1: oklch(99.2% 0.0036 289.5);
+      --violet-2: oklch(98.3% 0.0115 289.5);
+      --violet-3: oklch(96.3% 0.0242 289.5);
+      --violet-4: oklch(93.4% 0.05 289.5);
+      --violet-5: oklch(90.4% 0.0728 289.5);
+      --violet-6: oklch(86.4% 0.0928 289.5);
+      --violet-7: oklch(80.7% 0.1156 289.5);
+      --violet-8: oklch(72.9% 0.1525 289.5);
+      --violet-9: oklch(51.4% 0.2273 289.5);
+      --violet-10: oklch(46.5% 0.2047 289.5);
+      --violet-11: oklch(50.8% 0.2047 289.5);
+      --violet-12: oklch(31.3% 0.1251 289.5);
+
+      --violet-a1: color(display-p3 0.0235 0.0235 1 / 0.012);
+      --violet-a2: color(display-p3 0.1608 0.0235 0.8627 / 0.028);
+      --violet-a3: color(display-p3 0.1373 0.0039 0.9373 / 0.059);
+      --violet-a4: color(display-p3 0.1137 0.0039 0.9294 / 0.106);
+      --violet-a5: color(display-p3 0.1059 0.0039 0.9255 / 0.153);
+      --violet-a6: color(display-p3 0.1137 0.0039 0.9294 / 0.212);
+      --violet-a7: color(display-p3 0.1216 0.0039 0.9373 / 0.299);
+      --violet-a8: color(display-p3 0.1255 0.0039 0.9373 / 0.412);
+      --violet-a9: color(display-p3 0.2039 0 0.7843 / 0.757);
+      --violet-a10: color(display-p3 0.1686 0 0.6549 / 0.789);
+      --violet-a11: color(display-p3 0.1686 0 0.7059 / 0.73);
+      --violet-a12: color(display-p3 0.0745 0 0.3176 / 0.879);
+
+      --violet-contrast: #fff;
+      --violet-surface: color(display-p3 0.9725 0.9686 1 / 0.8);
+      --violet-indicator: oklch(51.4% 0.2273 289.5);
+      --violet-track: oklch(51.4% 0.2273 289.5);
+    }
+  }
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  @media (color-gamut: p3) {
+    :root, .light, .light-theme {
+      --gray-1: oklch(99.1% 0.0015 277.7);
+      --gray-2: oklch(98.2% 0.003 277.7);
+      --gray-3: oklch(95.6% 0.0045 277.7);
+      --gray-4: oklch(93.1% 0.0061 277.7);
+      --gray-5: oklch(91% 0.0077 277.7);
+      --gray-6: oklch(88.8% 0.0093 277.7);
+      --gray-7: oklch(85.3% 0.0117 277.7);
+      --gray-8: oklch(79.4% 0.016 277.7);
+      --gray-9: oklch(64.6% 0.0165 277.7);
+      --gray-10: oklch(61% 0.0161 277.7);
+      --gray-11: oklch(50.3% 0.0139 277.7);
+      --gray-12: oklch(24.1% 0.0099 277.7);
+
+      --gray-a1: color(display-p3 0.0235 0.0235 0.349 / 0.012);
+      --gray-a2: color(display-p3 0.0235 0.0235 0.349 / 0.024);
+      --gray-a3: color(display-p3 0.0078 0.0667 0.2549 / 0.063);
+      --gray-a4: color(display-p3 0.0118 0.051 0.2157 / 0.095);
+      --gray-a5: color(display-p3 0.0039 0.0392 0.2 / 0.122);
+      --gray-a6: color(display-p3 0.0039 0.0275 0.1804 / 0.153);
+      --gray-a7: color(display-p3 0.0078 0.0275 0.1843 / 0.197);
+      --gray-a8: color(display-p3 0.0039 0.0314 0.1765 / 0.275);
+      --gray-a9: color(display-p3 0.0039 0.0196 0.1059 / 0.455);
+      --gray-a10: color(display-p3 0.0039 0.0196 0.098 / 0.499);
+      --gray-a11: color(display-p3 0 0.0078 0.0588 / 0.616);
+      --gray-a12: color(display-p3 0 0.0039 0.0275 / 0.883);
+
+      --gray-contrast: #FFFFFF;
+      --gray-surface: color(display-p3 1 1 1 / 80%);
+      --gray-indicator: oklch(64.6% 0.0165 277.7);
+      --gray-track: oklch(64.6% 0.0165 277.7);
+    }
+  }
+}
+
+/* Hiérarchie des couleurs d'interface basée sur le violet */
 @layer base {
   :root {
-    --background: 249 50% 99%;
-    --foreground: 222.2 84% 4.9%;
+    /* === ARRIÈRE-PLANS === */
+    --background: var(--violet-1);           /* Arrière-plan principal (le plus clair) */
+    --foreground: var(--violet-12);         /* Texte principal (le plus contrasté) */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* === SURFACES === */
+    --card: var(--violet-2);                /* Cartes et conteneurs */
+    --card-foreground: var(--violet-12);    /* Texte sur les cartes */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: var(--violet-1);             /* Popovers et tooltips */
+    --popover-foreground: var(--violet-12); /* Texte sur popovers */
 
-    --primary: 263 70% 50%;
-    --primary-foreground: 210 40% 98%;
-    --primary-glow: 263 80% 70%;
+    /* === ACTIONS PRIMAIRES === */
+    --primary: var(--violet-9);             /* Boutons principaux, liens actifs */
+    --primary-foreground: var(--violet-contrast); /* Texte sur primaire */
 
-    --secondary: 142 76% 36%;
-    --secondary-foreground: 210 40% 98%;
-    --secondary-glow: 142 69% 58%;
+    /* === ACTIONS SECONDAIRES === */
+    --secondary: var(--violet-3);           /* Boutons secondaires */
+    --secondary-foreground: var(--violet-11); /* Texte sur secondaire */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* === ÉLÉMENTS DISCRETS === */
+    --muted: var(--violet-2);               /* Arrière-plans discrets */
+    --muted-foreground: var(--violet-11);   /* Texte discret */
 
-    --accent: 338 78% 60%;
-    --accent-foreground: 210 40% 98%;
-    --accent-glow: 338 90% 75%;
+    /* === ÉLÉMENTS D'ACCENT === */
+    --accent: var(--violet-4);              /* Éléments mis en valeur */
+    --accent-foreground: var(--violet-11);  /* Texte sur accent */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* === ÉLÉMENTS DESTRUCTIFS === */
+    --destructive: #dc2626;                 /* Actions destructives (seule couleur non-violet) */
+    --destructive-foreground: var(--violet-contrast);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 263 70% 50%;
+    /* === BORDURES ET CHAMPS === */
+    --border: var(--violet-6);              /* Bordures générales */
+    --input: var(--violet-3);               /* Arrière-plan des champs */
+    --ring: var(--violet-7);                /* Focus ring */
 
-    /* Enhanced gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-success: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
-    --gradient-motivation: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
-    --gradient-background: linear-gradient(135deg, hsl(249 50% 99%), hsl(263 90% 98%));
+    /* === GRADIENTS === */
+    --gradient-primary: linear-gradient(135deg, var(--violet-9), var(--violet-10));
+    --gradient-success: linear-gradient(135deg, var(--violet-8), var(--violet-9));
+    --gradient-motivation: linear-gradient(135deg, var(--violet-6), var(--violet-8));
+    --gradient-background: linear-gradient(135deg, var(--violet-1), var(--violet-2));
     
-    /* Enhanced animations and shadows */
+    /* === OMBRES === */
+    --shadow-learning: 0 10px 30px -10px var(--violet-a4);
+    --shadow-success: 0 10px 30px -10px var(--violet-a5);
+    --shadow-glow: 0 0 40px var(--violet-a6);
+    --shadow-hover: 0 20px 40px -15px var(--violet-a5);
+
+    /* === SIDEBAR === */
+    --sidebar-background: var(--violet-2);
+    --sidebar-foreground: var(--violet-11);
+    --sidebar-primary: var(--violet-12);
+    --sidebar-primary-foreground: var(--violet-1);
+    --sidebar-accent: var(--violet-3);
+    --sidebar-accent-foreground: var(--violet-11);
+    --sidebar-border: var(--violet-6);
+    --sidebar-ring: var(--violet-7);
+
+    /* === ANIMATIONS === */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --shadow-learning: 0 10px 30px -10px hsl(var(--primary) / 0.3);
-    --shadow-success: 0 10px 30px -10px hsl(var(--secondary) / 0.3);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
-    --shadow-hover: 0 20px 40px -15px hsl(var(--primary) / 0.4);
-
     --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+    /* === ARRIÈRE-PLANS SOMBRES === */
+    --background: var(--violet-1);           /* Arrière-plan principal sombre */
+    --foreground: var(--violet-12);         /* Texte principal clair */
 
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
+    /* === SURFACES SOMBRES === */
+    --card: var(--violet-2);                /* Cartes légèrement plus claires */
+    --card-foreground: var(--violet-12);    /* Texte clair sur cartes */
 
-    --popover: 224 71% 4%;
-    --popover-foreground: 213 31% 91%;
+    --popover: var(--violet-2);             /* Popovers */
+    --popover-foreground: var(--violet-12); /* Texte sur popovers */
 
-    --primary: 263 70% 60%;
-    --primary-foreground: 210 40% 98%;
-    --primary-glow: 263 80% 75%;
+    /* === ACTIONS PRIMAIRES SOMBRES === */
+    --primary: var(--violet-9);             /* Bouton primaire vibrant */
+    --primary-foreground: var(--violet-contrast); /* Texte blanc */
 
-    --secondary: 142 76% 45%;
-    --secondary-foreground: 210 40% 98%;
-    --secondary-glow: 142 69% 68%;
+    /* === ACTIONS SECONDAIRES SOMBRES === */
+    --secondary: var(--violet-3);           /* Boutons secondaires subtils */
+    --secondary-foreground: var(--violet-11); /* Texte clair */
 
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
+    /* === ÉLÉMENTS DISCRETS SOMBRES === */
+    --muted: var(--violet-3);               /* Légèrement plus visible */
+    --muted-foreground: var(--violet-11);   /* Texte discret mais lisible */
 
-    --accent: 338 78% 65%;
-    --accent-foreground: 210 40% 98%;
-    --accent-glow: 338 90% 80%;
+    /* === ÉLÉMENTS D'ACCENT SOMBRES === */
+    --accent: var(--violet-4);              /* Plus visible en mode sombre */
+    --accent-foreground: var(--violet-11);  /* Texte d'accent */
 
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 210 40% 98%;
+    /* === BORDURES ET CHAMPS SOMBRES === */
+    --border: var(--violet-6);              /* Bordures visibles */
+    --input: var(--violet-3);               /* Champs subtils */
+    --ring: var(--violet-8);                /* Focus plus visible */
 
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
-    --ring: 263 70% 60%;
+    /* === GRADIENTS SOMBRES === */
+    --gradient-background: linear-gradient(135deg, var(--violet-1), var(--violet-3));
+    --shadow-learning: 0 10px 30px -10px var(--violet-a6);
+    --shadow-success: 0 10px 30px -10px var(--violet-a7);
+    --shadow-glow: 0 0 40px var(--violet-a8);
+    --shadow-hover: 0 20px 40px -15px var(--violet-a6);
 
-    /* Dark mode enhanced gradients */
-    --gradient-background: linear-gradient(135deg, hsl(224 71% 4%), hsl(263 70% 8%));
-    --shadow-learning: 0 10px 30px -10px hsl(var(--primary) / 0.5);
-    --shadow-success: 0 10px 30px -10px hsl(var(--secondary) / 0.5);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.6);
-    --shadow-hover: 0 20px 40px -15px hsl(var(--primary) / 0.6);
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* === SIDEBAR SOMBRE === */
+    --sidebar-background: var(--violet-2);
+    --sidebar-foreground: var(--violet-11);
+    --sidebar-primary: var(--violet-9);
+    --sidebar-primary-foreground: var(--violet-contrast);
+    --sidebar-accent: var(--violet-3);
+    --sidebar-accent-foreground: var(--violet-11);
+    --sidebar-border: var(--violet-6);
+    --sidebar-ring: var(--violet-8);
   }
 }
 

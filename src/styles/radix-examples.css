@@ -1,0 +1,163 @@
+/* Exemples d'utilisation des couleurs Radix UI */
+
+/* Exemples de cartes avec différents niveaux de violet */
+.radix-card-subtle {
+  background: var(--violet-2);
+  border: 1px solid var(--violet-4);
+  color: var(--violet-11);
+}
+
+.radix-card-medium {
+  background: var(--violet-4);
+  border: 1px solid var(--violet-6);
+  color: var(--violet-12);
+}
+
+.radix-card-strong {
+  background: var(--violet-9);
+  border: 1px solid var(--violet-10);
+  color: var(--violet-contrast);
+}
+
+/* Exemples de boutons */
+.radix-btn-ghost {
+  background: var(--violet-a2);
+  border: 1px solid var(--violet-a4);
+  color: var(--violet-11);
+}
+
+.radix-btn-ghost:hover {
+  background: var(--violet-a4);
+  border-color: var(--violet-a6);
+  color: var(--violet-12);
+}
+
+.radix-btn-solid {
+  background: var(--violet-9);
+  border: 1px solid var(--violet-9);
+  color: var(--violet-contrast);
+}
+
+.radix-btn-solid:hover {
+  background: var(--violet-10);
+  border-color: var(--violet-10);
+}
+
+/* Exemples d'éléments de formulaire */
+.radix-input {
+  background: var(--violet-1);
+  border: 1px solid var(--violet-6);
+  color: var(--violet-12);
+}
+
+.radix-input:focus {
+  border-color: var(--violet-8);
+  box-shadow: 0 0 0 2px var(--violet-a4);
+}
+
+.radix-input::placeholder {
+  color: var(--violet-10);
+}
+
+/* Exemples de surfaces et arrière-plans */
+.radix-surface-low {
+  background: var(--violet-surface);
+}
+
+.radix-surface-elevated {
+  background: var(--violet-2);
+  border: 1px solid var(--violet-4);
+}
+
+/* Exemples de texte */
+.radix-text-high-contrast {
+  color: var(--violet-12);
+}
+
+.radix-text-low-contrast {
+  color: var(--violet-11);
+}
+
+.radix-text-accent {
+  color: var(--violet-9);
+}
+
+/* Exemples avec les couleurs grises */
+.radix-neutral-surface {
+  background: var(--gray-2);
+  border: 1px solid var(--gray-4);
+  color: var(--gray-12);
+}
+
+.radix-neutral-btn {
+  background: var(--gray-3);
+  border: 1px solid var(--gray-6);
+  color: var(--gray-11);
+}
+
+.radix-neutral-btn:hover {
+  background: var(--gray-4);
+  border-color: var(--gray-7);
+  color: var(--gray-12);
+}
+
+/* Exemples d'états interactifs */
+.radix-interactive:hover {
+  background: var(--violet-a3);
+}
+
+.radix-interactive:active {
+  background: var(--violet-a4);
+}
+
+.radix-interactive:focus {
+  outline: 2px solid var(--violet-7);
+  outline-offset: 2px;
+}
+
+/* Exemples de bordures et séparateurs */
+.radix-border-subtle {
+  border-color: var(--violet-4);
+}
+
+.radix-border-normal {
+  border-color: var(--violet-6);
+}
+
+.radix-border-strong {
+  border-color: var(--violet-8);
+}
+
+/* Exemples d'indicateurs et de progress */
+.radix-progress-track {
+  background: var(--gray-4);
+}
+
+.radix-progress-indicator {
+  background: var(--violet-indicator);
+}
+
+/* Exemples de notifications et alertes */
+.radix-alert-info {
+  background: var(--violet-a2);
+  border: 1px solid var(--violet-a4);
+  color: var(--violet-11);
+}
+
+.radix-alert-success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #059669;
+}
+
+.radix-alert-warning {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #D97706;
+}
+
+.radix-alert-error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #DC2626;
+}

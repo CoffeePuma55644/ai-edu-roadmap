@@ -19,51 +19,79 @@ export default {
 		},
 		extend: {
 			colors: {
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
+				border: 'var(--border)',
+				input: 'var(--input)',
+				ring: 'var(--ring)',
+				background: 'var(--background)',
+				foreground: 'var(--foreground)',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))',
-					glow: 'hsl(var(--primary-glow))'
+					DEFAULT: 'var(--primary)',
+					foreground: 'var(--primary-foreground)'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))',
-					glow: 'hsl(var(--secondary-glow))'
+					DEFAULT: 'var(--secondary)',
+					foreground: 'var(--secondary-foreground)'
 				},
 				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
+					DEFAULT: 'var(--destructive)',
+					foreground: 'var(--destructive-foreground)'
 				},
 				muted: {
-					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
+					DEFAULT: 'var(--muted)',
+					foreground: 'var(--muted-foreground)'
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))',
-					glow: 'hsl(var(--accent-glow))'
+					DEFAULT: 'var(--accent)',
+					foreground: 'var(--accent-foreground)'
 				},
 				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
+					DEFAULT: 'var(--popover)',
+					foreground: 'var(--popover-foreground)'
 				},
 				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					DEFAULT: 'var(--card)',
+					foreground: 'var(--card-foreground)'
 				},
 				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+					DEFAULT: 'var(--sidebar-background)',
+					foreground: 'var(--sidebar-foreground)',
+					primary: 'var(--sidebar-primary)',
+					'primary-foreground': 'var(--sidebar-primary-foreground)',
+					accent: 'var(--sidebar-accent)',
+					'accent-foreground': 'var(--sidebar-accent-foreground)',
+					border: 'var(--sidebar-border)',
+					ring: 'var(--sidebar-ring)'
+				},
+				// Radix UI Violet Colors - Hiérarchie complète
+				violet: {
+					1: 'var(--violet-1)',
+					2: 'var(--violet-2)',
+					3: 'var(--violet-3)',
+					4: 'var(--violet-4)',
+					5: 'var(--violet-5)',
+					6: 'var(--violet-6)',
+					7: 'var(--violet-7)',
+					8: 'var(--violet-8)',
+					9: 'var(--violet-9)',
+					10: 'var(--violet-10)',
+					11: 'var(--violet-11)',
+					12: 'var(--violet-12)',
+					a1: 'var(--violet-a1)',
+					a2: 'var(--violet-a2)',
+					a3: 'var(--violet-a3)',
+					a4: 'var(--violet-a4)',
+					a5: 'var(--violet-a5)',
+					a6: 'var(--violet-a6)',
+					a7: 'var(--violet-a7)',
+					a8: 'var(--violet-a8)',
+					a9: 'var(--violet-a9)',
+					a10: 'var(--violet-a10)',
+					a11: 'var(--violet-a11)',
+					a12: 'var(--violet-a12)',
+					contrast: 'var(--violet-contrast)',
+					surface: 'var(--violet-surface)',
+					indicator: 'var(--violet-indicator)',
+					track: 'var(--violet-track)'
 				}
 			},
 			borderRadius: {
@@ -109,15 +137,20 @@ export default {
 					'50%': { transform: 'translateY(-10px)' }
 				},
 				'pulse-glow': {
-					'0%, 100%': { boxShadow: '0 0 20px hsl(var(--primary-glow) / 0.4)' },
-					'50%': { boxShadow: '0 0 40px hsl(var(--primary-glow) / 0.8)' }
+					'0%, 100%': { boxShadow: '0 0 20px var(--violet-a4)' },
+					'50%': { boxShadow: '0 0 40px var(--violet-a6)' }
+				},
+				'liquid-shimmer': {
+					'0%': { backgroundPosition: '-200px 0' },
+					'100%': { backgroundPosition: 'calc(200px + 100%) 0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 3s ease-in-out infinite',
-				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'liquid-shimmer': 'liquid-shimmer 2s infinite'
 			}
 		}
 	},

@@ -9,6 +9,8 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider, useTheme } from "@/contexts/ThemeContext"; // Utiliser un seul ThemeProvider
 import { ThemeSynchronizer } from "@/components/ThemeSynchronizer";
 import Index from "./pages/Index";
+import IndexLiquidGlass from "./pages/IndexLiquidGlass";
+import LiquidGlassDemo from "./pages/LiquidGlassDemo";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
@@ -25,6 +27,8 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/liquid" element={<IndexLiquidGlass />} />
+              <Route path="/demo" element={<LiquidGlassDemo />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
