@@ -6,7 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { LearningWelcome } from "@/components/LearningWelcome";
 import { LearningSetup } from "@/components/LearningSetup";
 import { RoadmapPreview } from "@/components/RoadmapPreview";
-import { LearningInterface } from "@/components/LearningInterface";
+
 
 type AppState = "landing" | "welcome" | "setup" | "roadmap" | "learning";
 
@@ -110,7 +110,7 @@ const Index = () => {
           />
         );
       case "learning":
-        return <LearningInterface onBack={handleBack} />;
+        return <div className="p-8 text-center text-white">Learning interface coming soon...</div>;
       default:
         return <LandingPage onGetStarted={handleGetStarted} />;
     }

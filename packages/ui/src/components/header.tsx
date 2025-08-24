@@ -3,34 +3,47 @@ import { ThemeToggle } from "../theme/theme-toggle";
 import { useAuth } from "@repo/auth";
 import { LogOut, User, BookOpen } from "lucide-react";
 
-export const Header = () => {
+interface HeaderProps {
+  onAuthClick?: () => void;
+  onLoginClick?: () => void;
+}
+
+export const Header = ({ onAuthClick, onLoginClick }: HeaderProps) => {
   const { user, signOut } = useAuth();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+    <header className="fixed top-0 z-50 w-full liquid-glass-header">
+      <div className="container mx-auto flex h-20 items-center justify-between px-6">
         <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <BookOpen className="h-5 w-5 text-white" />
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+              <BookOpen className="h-6 w-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gradient">
-              AI-Edu-Roadmap
-            </span>
+            <div>
+              <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                AI EduRoadmap
+              </span>
+              <div className="text-xs text-gray-400 hidden sm:block">
+                Intelligent Learning
+              </div>
+            </div>
           </div>
         </div>
 
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-8">
           {!user && (
             <>
-              <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">
-                Fonctionnalités
+              <a href="#home" className="text-white font-medium hover:text-purple-400 transition-colors">
+                Home
               </a>
-              <a href="#how-it-works" className="text-sm font-medium hover:text-primary transition-colors">
-                Comment ça marche
+              <a href="#courses" className="text-white font-medium hover:text-purple-400 transition-colors">
+                Courses
               </a>
-              <a href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors">
-                Témoignages
+              <a href="#about" className="text-white font-medium hover:text-purple-400 transition-colors">
+                About
+              </a>
+              <a href="#contact" className="text-white font-medium hover:text-purple-400 transition-colors">
+                Contact
               </a>
             </>
           )}
@@ -41,7 +54,7 @@ export const Header = () => {
           
           {user ? (
             <div className="flex items-center space-x-3">
-              <div className="flex items-center space-x-2 text-sm">
+              <div className="flex items-center space-x-2 text-sm text-white">
                 <User className="h-4 w-4" />
                 <span className="hidden sm:inline">{user.email}</span>
               </div>
@@ -49,19 +62,28 @@ export const Header = () => {
                 variant="ghost" 
                 size="sm" 
                 onClick={() => signOut()}
-                className="text-sm"
+                className="text-white hover:bg-white/10 transition-all"
               >
                 <LogOut className="h-4 w-4 mr-1" />
-                <span className="hidden sm:inline">Déconnexion</span>
+                <span className="hidden sm:inline">Sign Out</span>
               </Button>
             </div>
           ) : (
-            <div className="flex items-center space-x-2">
-              <Button variant="ghost" size="sm" asChild>
-                <a href="/auth">Connexion</a>
+            <div className="flex items-center space-x-3">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={onLoginClick || onAuthClick}
+                className="text-white hover:bg-white/10 transition-all"
+              >
+                Login
               </Button>
-              <Button size="sm" asChild>
-                <a href="/auth">S'inscrire</a>
+              <Button 
+                size="sm"
+                onClick={onAuthClick}
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-lg hover:shadow-purple-500/25 transition-all"
+              >
+                Get Started
               </Button>
             </div>
           )}
